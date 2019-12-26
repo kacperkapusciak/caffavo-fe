@@ -373,6 +373,10 @@ textarea {
 html, body {
   font-family: 'Muli', sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+}
 `;
 
 export default GlobalStyle;
