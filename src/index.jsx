@@ -7,7 +7,7 @@ import {AuthProvider} from "./providers/AuthProvider";
 import App from './App';
 
 const app = (
-  <Router basename="caffavo">
+  <Router basename="caffavo-fe">
     <AuthProvider>
       <App/>
     </AuthProvider>
