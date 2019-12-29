@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
+import ReactNotification from 'react-notifications-component';
+
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 import { AuthProvider } from "./providers/AuthProvider";
 
@@ -10,6 +14,7 @@ const app = (
   <Router basename="caffavo-fe">
     <AuthProvider>
       <App/>
+      <ReactNotification/>
     </AuthProvider>
   </Router>
 );

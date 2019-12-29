@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Field, Form, Formik } from 'formik';
 import axios from 'axios';
+import { store } from 'react-notifications-component';
 
 import { withAuth } from 'providers/AuthProvider';
 
@@ -11,6 +12,7 @@ import Input from 'components/Input';
 import Button from 'components/Button';
 import Header from 'components/Header';
 import ErrorMessage, { ErrorMessageStyled } from 'components/ErrorMessage';
+import Link from 'components/Link';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,20 +21,24 @@ const Wrapper = styled.div`
 const BoundingBox = styled.section`
   width: 600px;
 `;
+const Flex = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 28px;
+`;
 const ButtonStyled = styled(Button)`
-  margin: 1rem auto;
   width: 256px;
-  float: right;
+`;
+const LinkStyled = styled(Link)`
+  margin-left: 5px;
 `;
 
 const Login = ({ auth }) => {
   const [error, setError] = useState(null);
 
   const tryLogin = async ({ email, password }) => {
-    let response;
-
     try {
-      response = await axios({
+      const response = await axios({
         method: 'post',
         url: 'https://caffavo.herokuapp.com/auth',
         data: {
@@ -40,9 +46,23 @@ const Login = ({ auth }) => {
           password
         }
       });
+      if (response.status === 200) {
+        const { id, admin } = response.data;
+        auth.login(id, admin);
 
-      const { id, admin } = response.data;
-      auth.login(id, admin);
+        store.addNotification({
+          title: "Udało się!",
+          message: "Zalogowano na konto.",
+          type: "success",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animated", "fadeInRight"],
+          animationOut: ["animated", "fadeOutRight"],
+          dismiss: {
+            duration: 5000
+          }
+        });
+      }
 
     } catch (err) {
       setError(err);
@@ -71,13 +91,19 @@ const Login = ({ auth }) => {
                   {({ field }) => <Input type="password" {...field} />}
                 </Field>
                 <ErrorMessage name="password"/>
-                <ButtonStyled type="submit" primary>
-                  Zaloguj się
-                </ButtonStyled>
+                <Flex>
+                  <ButtonStyled type="submit" primary>
+                    Zaloguj się
+                  </ButtonStyled>
+                </Flex>
               </Form>
             )}
           />
           {error && <ErrorMessageStyled>Błędny email lub hasło.</ErrorMessageStyled>}
+          <p>
+            Nie masz konta?
+            <LinkStyled to="/register">Zarejestruj się</LinkStyled>
+          </p>
         </BoundingBox>
       </Center>
     </Wrapper>
