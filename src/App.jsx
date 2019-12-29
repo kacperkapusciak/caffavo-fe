@@ -1,8 +1,8 @@
-import React, {Suspense} from 'react';
-import {Redirect, Route, Switch,} from 'react-router-dom';
-import {ThemeProvider} from "styled-components";
+import React, { Suspense } from 'react';
+import { Redirect, Route, Switch, } from 'react-router-dom';
+import { ThemeProvider } from "styled-components";
 
-import {withAuth} from './providers/AuthProvider';
+import { withAuth } from './providers/AuthProvider';
 
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
@@ -15,7 +15,7 @@ import Finances from './views/Finances';
 import Account from './views/Account';
 import Offer from './views/Offer';
 
-const App = ({auth}) => {
+const App = ({ auth }) => {
   const adminRoutes = [
     <Route path="/finances" component={Finances} key="finances"/>,
     <Route path="/users" component={Users} key="users"/>
@@ -33,7 +33,7 @@ const App = ({auth}) => {
     <Route path="/register" component={Register} key="register"/>,
     <Redirect path="/" to="/login" key="redirectUnauth"/>
   ];
-  console.log('auth.id: ', auth.id, ' auth.admin: ', auth.admin);
+
   return (
     <ThemeProvider theme={theme}>
       <Suspense fallback="Loading...">

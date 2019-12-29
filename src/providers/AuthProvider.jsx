@@ -1,8 +1,8 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
-import {Redirect, useHistory} from 'react-router-dom';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { Redirect, useHistory } from 'react-router-dom';
 
-const AuthContext = createContext({id: null, admin: null});
-const AuthProvider = ({children}) => {
+const AuthContext = createContext({ id: null, admin: null });
+const AuthProvider = ({ children }) => {
   const [id, setId] = useState('');
   const [admin, setAdmin] = useState(null);
   const history = useHistory();
@@ -31,7 +31,7 @@ const AuthProvider = ({children}) => {
   };
 
   return (
-    <AuthContext.Provider value={{id, admin, login, logout}}>
+    <AuthContext.Provider value={{ id, admin, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
@@ -42,4 +42,4 @@ const withAuth = Component => props => {
   return <Component auth={value} {...props} />;
 };
 
-export {AuthProvider, withAuth};
+export { AuthProvider, withAuth };

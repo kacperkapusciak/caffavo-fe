@@ -1,32 +1,34 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import {Field, Form, Formik} from 'formik';
+import { Field, Form, Formik } from 'formik';
 import axios from 'axios';
 
-import {withAuth} from '../providers/AuthProvider';
+import { withAuth } from 'providers/AuthProvider';
 
-import Center from '../components/Center';
-import Label from '../components/Label';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import Header from '../components/Header';
-import ErrorMessage, {ErrorMessageStyled} from '../components/ErrorMessage';
+import Center from 'components/Center';
+import Label from 'components/Label';
+import Input from 'components/Input';
+import Button from 'components/Button';
+import Header from 'components/Header';
+import ErrorMessage, { ErrorMessageStyled } from 'components/ErrorMessage';
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
 `;
-const Box = styled.section`
+const BoundingBox = styled.section`
   width: 600px;
 `;
 const ButtonStyled = styled(Button)`
-  margin: 1rem 0;
+  margin: 1rem auto;
+  width: 256px;
+  float: right;
 `;
 
-const Login = ({auth}) => {
+const Login = ({ auth }) => {
   const [error, setError] = useState(null);
 
-  const tryLogin = async ({email, password}) => {
+  const tryLogin = async ({ email, password }) => {
     let response;
 
     try {
@@ -39,7 +41,7 @@ const Login = ({auth}) => {
         }
       });
 
-      const {id, admin} = response.data;
+      const { id, admin } = response.data;
       auth.login(id, admin);
 
     } catch (err) {
@@ -50,10 +52,10 @@ const Login = ({auth}) => {
   return (
     <Wrapper>
       <Center>
-        <Box>
+        <BoundingBox>
           <Header>Zaloguj się</Header>
           <Formik
-            initialValues={{email: '', password: ''}}
+            initialValues={{ email: '', password: '' }}
             onSubmit={values => {
               tryLogin(values);
             }}
@@ -61,22 +63,22 @@ const Login = ({auth}) => {
               <Form>
                 <Label htmlFor="email">E-mail</Label>
                 <Field name="email">
-                  {({field}) => <Input type="email" {...field} />}
+                  {({ field }) => <Input type="email" {...field} />}
                 </Field>
                 <ErrorMessage name="email"/>
                 <Label htmlFor="password">Hasło</Label>
                 <Field name="password">
-                  {({field}) => <Input type="password" {...field} />}
+                  {({ field }) => <Input type="password" {...field} />}
                 </Field>
                 <ErrorMessage name="password"/>
-                <ButtonStyled type="submit" primary unsized>
+                <ButtonStyled type="submit" primary>
                   Zaloguj się
                 </ButtonStyled>
               </Form>
             )}
           />
           {error && <ErrorMessageStyled>Błędny email lub hasło.</ErrorMessageStyled>}
-        </Box>
+        </BoundingBox>
       </Center>
     </Wrapper>
   )
