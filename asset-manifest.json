@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/caffavo-fe/static/js/main.15879c3b.chunk.js",
-    "main.js.map": "/caffavo-fe/static/js/main.15879c3b.chunk.js.map",
+    "main.js": "/caffavo-fe/static/js/main.578c80c5.chunk.js",
+    "main.js.map": "/caffavo-fe/static/js/main.578c80c5.chunk.js.map",
     "runtime-main.js": "/caffavo-fe/static/js/runtime-main.9bdb2919.js",
     "runtime-main.js.map": "/caffavo-fe/static/js/runtime-main.9bdb2919.js.map",
     "static/css/2.e8d317c5.chunk.css": "/caffavo-fe/static/css/2.e8d317c5.chunk.css",
-    "static/js/2.c9ed65fa.chunk.js": "/caffavo-fe/static/js/2.c9ed65fa.chunk.js",
-    "static/js/2.c9ed65fa.chunk.js.map": "/caffavo-fe/static/js/2.c9ed65fa.chunk.js.map",
+    "static/js/2.94c1c442.chunk.js": "/caffavo-fe/static/js/2.94c1c442.chunk.js",
+    "static/js/2.94c1c442.chunk.js.map": "/caffavo-fe/static/js/2.94c1c442.chunk.js.map",
     "index.html": "/caffavo-fe/index.html",
-    "precache-manifest.75d87a582451c9f3efce77b80b38dfba.js": "/caffavo-fe/precache-manifest.75d87a582451c9f3efce77b80b38dfba.js",
+    "precache-manifest.8d5ce85d8e34c48e1aec21d7e81c70bc.js": "/caffavo-fe/precache-manifest.8d5ce85d8e34c48e1aec21d7e81c70bc.js",
     "service-worker.js": "/caffavo-fe/service-worker.js",
     "static/css/2.e8d317c5.chunk.css.map": "/caffavo-fe/static/css/2.e8d317c5.chunk.css.map",
-    "static/js/2.c9ed65fa.chunk.js.LICENSE": "/caffavo-fe/static/js/2.c9ed65fa.chunk.js.LICENSE"
+    "static/js/2.94c1c442.chunk.js.LICENSE": "/caffavo-fe/static/js/2.94c1c442.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.9bdb2919.js",
     "static/css/2.e8d317c5.chunk.css",
-    "static/js/2.c9ed65fa.chunk.js",
-    "static/js/main.15879c3b.chunk.js"
+    "static/js/2.94c1c442.chunk.js",
+    "static/js/main.578c80c5.chunk.js"
   ]
 }
