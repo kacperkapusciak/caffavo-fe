@@ -16,6 +16,8 @@ import Users from 'views/Users';
 import Finances from 'views/Finances';
 import Account from 'views/Account';
 import Offer from 'views/Offer';
+import Ingredients from 'views/Ingredients';
+import Recepies from 'views/Recepies';
 
 const Layout = styled.div`
   display: grid;
@@ -25,7 +27,9 @@ const Layout = styled.div`
 const App = ({ auth }) => {
   const adminRoutes = [
     <Route path="/finances" component={Finances} key="finances"/>,
-    <Route path="/users" component={Users} key="users"/>
+    <Route path="/users" component={Users} key="users"/>,
+    <Route path="/ingredients" component={Ingredients} key="ingredients"/>,
+    <Route path="/recepies" component={Recepies} key="recepies"/>
   ];
 
   const userRoutes = [

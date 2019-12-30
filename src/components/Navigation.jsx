@@ -7,6 +7,8 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import AttachMoneyOutlinedIcon from '@material-ui/icons/AttachMoneyOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import ExtensionOutlinedIcon from '@material-ui/icons/ExtensionOutlined';
+import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
 
 import { withAuth } from "providers/AuthProvider";
 
@@ -34,7 +36,9 @@ const Navigation = ({ auth }) => {
 
   const adminLinks = [
     <NavLink to="/finances" icon={<AttachMoneyOutlinedIcon/>} text="Finanse" key="finanse"/>,
-    <NavLink to="/users" icon={<PeopleAltOutlinedIcon/>} text="Użytkownicy" key="uzytkownicy"/>
+    <NavLink to="/users" icon={<PeopleAltOutlinedIcon/>} text="Użytkownicy" key="uzytkownicy"/>,
+    <NavLink to="/ingredients" icon={<ExtensionOutlinedIcon/>} text="Składniki" key="skladniki"/>,
+    <NavLink to="/recepies" icon={<MenuBookOutlinedIcon/>} text="Przepisy" key="przepisy"/>
   ];
 
   const navigationLinks = auth.admin ? [...userLinks, ...adminLinks] : [...userLinks];

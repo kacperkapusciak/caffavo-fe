@@ -14,7 +14,11 @@ const theme = {
       '200': '#bcbfd7',
       '300': '#bec1d8',
       '400': '#545b65'
-    }
+    },
+    success: '#28a745',
+    warning: '#ffc107',
+    danger: '#dc3545',
+    info: '#17a2b8'
   },
 };
 

@@ -10,10 +10,11 @@ const Button = styled.button`
   transition: all 0.2s ease;
   width: ${({ unsized }) => (unsized ? '100%' : 'unset')};
   height: 50px;
-  border: 2px solid transparent;
+  border: 2px solid ${({theme}) => theme.colors.primary};
   
   &:hover {
-    border: 2px solid ${({theme}) => theme.colors.primary};
+    transform: scale(1.025);
+    cursor: pointer;
   }
 `;
 

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
 import { store } from 'react-notifications-component';
+
+import axios from 'axios-instance';
 
 import Center from 'components/Center';
 import Header from 'components/Header';
@@ -96,7 +97,7 @@ const Register = () => {
     try {
       const response = await axios({
         method: 'post',
-        url: 'https://caffavo.herokuapp.com/users',
+        url: 'users',
         data: {
           email, password, firstName, lastName, phone
         }
@@ -123,7 +124,7 @@ const Register = () => {
     }
   };
 
-  if (loading) return <Spinner />;
+  if (loading) return <Spinner wholePage/>;
 
   return (
     <Wrapper>

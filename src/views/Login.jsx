@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Field, Form, Formik } from 'formik';
-import axios from 'axios';
 import * as Yup from 'yup';
 import { store } from 'react-notifications-component';
 
 import { withAuth } from 'providers/AuthProvider';
+import axios from 'axios-instance';
 
 import Center from 'components/Center';
 import Label from 'components/Label';
@@ -53,7 +53,7 @@ const Login = ({ auth }) => {
     try {
       const response = await axios({
         method: 'post',
-        url: 'https://caffavo.herokuapp.com/auth',
+        url: 'auth',
         data: {
           email,
           password
@@ -84,7 +84,7 @@ const Login = ({ auth }) => {
     }
   };
 
-  if (loading) return <Spinner />;
+  if (loading) return <Spinner wholePage/>;
 
   return (
     <Wrapper>
