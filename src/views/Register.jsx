@@ -13,6 +13,7 @@ import Input from "components/Input";
 import ErrorMessage, { ErrorMessageStyled } from "components/ErrorMessage";
 import Button from "components/Button";
 import Link from 'components/Link';
+import Spinner from "components/Spinner";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -84,10 +85,14 @@ const validationSchema = Yup.object({
 
 const Register = () => {
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const history = useHistory();
 
   const tryRegister = async (values) => {
     const { email, password, firstName, lastName, phone } = values;
+    setLoading(true);
+
     try {
       const response = await axios({
         method: 'post',
@@ -97,6 +102,7 @@ const Register = () => {
         }
       });
       if (response.status === 200) {
+        setLoading(false);
         store.addNotification({
           title: "Udało się!",
           message: "Teraz możesz zalogować się na swoje konto.",
@@ -113,8 +119,11 @@ const Register = () => {
       }
     } catch (err) {
       setError(err.response.data);
+      setLoading(false);
     }
   };
+
+  if (loading) return <Spinner />;
 
   return (
     <Wrapper>

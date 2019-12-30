@@ -1,19 +1,26 @@
 import React, { Suspense } from 'react';
 import { Redirect, Route, Switch, } from 'react-router-dom';
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
-import { withAuth } from './providers/AuthProvider';
+import { withAuth } from 'providers/AuthProvider';
 
-import GlobalStyle from './styles/GlobalStyle';
-import theme from './styles/theme';
+import GlobalStyle from 'styles/GlobalStyle';
+import theme from 'styles/theme';
 
-import Login from './views/Login';
-import Register from './views/Register';
-import Orders from './views/Orders';
-import Users from './views/Users';
-import Finances from './views/Finances';
-import Account from './views/Account';
-import Offer from './views/Offer';
+import Navigation from 'components/Navigation';
+
+import Login from 'views/Login';
+import Register from 'views/Register';
+import Orders from 'views/Orders';
+import Users from 'views/Users';
+import Finances from 'views/Finances';
+import Account from 'views/Account';
+import Offer from 'views/Offer';
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 256px 1fr;
+`;
 
 const App = ({ auth }) => {
   const adminRoutes = [
@@ -38,10 +45,11 @@ const App = ({ auth }) => {
     <ThemeProvider theme={theme}>
       <Suspense fallback="Loading...">
         <Switch>
-          {auth.id && auth.admin ? (
-            [...adminRoutes, ...userRoutes]
-          ) : auth.id ? (
-            userRoutes
+          {auth.id ? (
+            <Layout>
+              <Navigation/>
+              {auth.admin ? [...adminRoutes, ...userRoutes] : userRoutes}
+            </Layout>
           ) : (
             unauthorisedRoutes
           )}

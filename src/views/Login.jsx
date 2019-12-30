@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Field, Form, Formik } from 'formik';
 import axios from 'axios';
+import * as Yup from 'yup';
 import { store } from 'react-notifications-component';
 
 import { withAuth } from 'providers/AuthProvider';
@@ -13,6 +14,7 @@ import Button from 'components/Button';
 import Header from 'components/Header';
 import ErrorMessage, { ErrorMessageStyled } from 'components/ErrorMessage';
 import Link from 'components/Link';
+import Spinner from 'components/Spinner';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -33,10 +35,21 @@ const LinkStyled = styled(Link)`
   margin-left: 5px;
 `;
 
+const validationSchema = Yup.object({
+  email: Yup.string()
+    .email('Nieprawidłowy format.')
+    .required('Pole wymagane.'),
+  password: Yup.string()
+    .min(5, 'Hasło musi być przynajmniej 5 znakowe.')
+    .required('Pole wymagane.'),
+});
+
 const Login = ({ auth }) => {
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const tryLogin = async ({ email, password }) => {
+    setLoading(true);
     try {
       const response = await axios({
         method: 'post',
@@ -47,6 +60,7 @@ const Login = ({ auth }) => {
         }
       });
       if (response.status === 200) {
+        setLoading(false);
         const { id, admin } = response.data;
         auth.login(id, admin);
 
@@ -65,9 +79,12 @@ const Login = ({ auth }) => {
       }
 
     } catch (err) {
+      setLoading(false);
       setError(err);
     }
   };
+
+  if (loading) return <Spinner />;
 
   return (
     <Wrapper>
@@ -76,6 +93,7 @@ const Login = ({ auth }) => {
           <Header>Zaloguj się</Header>
           <Formik
             initialValues={{ email: '', password: '' }}
+            validationSchema={validationSchema}
             onSubmit={values => {
               tryLogin(values);
             }}
