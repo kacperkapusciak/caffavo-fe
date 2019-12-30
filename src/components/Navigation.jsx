@@ -33,7 +33,7 @@ const Navigation = ({ auth }) => {
   ];
 
   const adminLinks = [
-    <NavLink to="/finances" icon={<AttachMoneyOutlinedIcon/>} text="Finance" key="finance"/>,
+    <NavLink to="/finances" icon={<AttachMoneyOutlinedIcon/>} text="Finanse" key="finanse"/>,
     <NavLink to="/users" icon={<PeopleAltOutlinedIcon/>} text="Użytkownicy" key="uzytkownicy"/>
   ];
 
