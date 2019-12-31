@@ -17,6 +17,8 @@ const customStyles = {
     borderBottomWidth: '1px',
     borderBottomColor: dark,
     background: 'transparent',
+    color: dark,
+    fontWeight: 'bold',
     '&:hover': {
       borderColor: 'transparent',
       borderBottomColor: dark,

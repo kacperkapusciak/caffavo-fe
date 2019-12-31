@@ -6,6 +6,7 @@ import { store } from 'react-notifications-component';
 
 import { withAuth } from 'providers/AuthProvider';
 import axios from 'axios-instance';
+import openNotification from 'providers/openNotification';
 
 import Center from 'components/Center';
 import Label from 'components/Label';
@@ -15,6 +16,7 @@ import Header from 'components/Header';
 import ErrorMessage, { ErrorMessageStyled } from 'components/ErrorMessage';
 import Link from 'components/Link';
 import Spinner from 'components/Spinner';
+
 
 const Wrapper = styled.div`
   width: 100%;
@@ -63,21 +65,8 @@ const Login = ({ auth }) => {
         setLoading(false);
         const { id, admin } = response.data;
         auth.login(id, admin);
-
-        store.addNotification({
-          title: "Udało się!",
-          message: "Zalogowano na konto.",
-          type: "success",
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animated", "fadeInRight"],
-          animationOut: ["animated", "fadeOutRight"],
-          dismiss: {
-            duration: 5000
-          }
-        });
+        openNotification('success', 'Zalogowano na konto.', 5000);
       }
-
     } catch (err) {
       setLoading(false);
       setError(err);

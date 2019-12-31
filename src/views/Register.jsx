@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { store } from 'react-notifications-component';
 
 import axios from 'axios-instance';
+import openNotification from 'providers/openNotification';
 
 import Center from 'components/Center';
 import Header from 'components/Header';
@@ -104,18 +105,7 @@ const Register = () => {
       });
       if (response.status === 200) {
         setLoading(false);
-        store.addNotification({
-          title: "Udało się!",
-          message: "Teraz możesz zalogować się na swoje konto.",
-          type: "success",
-          insert: "top",
-          container: "top-right",
-          animationIn: ["animated", "fadeInRight"],
-          animationOut: ["animated", "fadeOutRight"],
-          dismiss: {
-            duration: 7000
-          }
-        });
+        openNotification('success', 'Teraz możesz zalogować się na swoje konto.', 7000);
         history.push('login/');
       }
     } catch (err) {

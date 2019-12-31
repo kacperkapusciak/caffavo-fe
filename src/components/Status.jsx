@@ -17,6 +17,8 @@ const IconWrapper = styled.div`
       return theme.colors.warning;
     case 'niedostepny':
       return theme.colors.danger;
+    default: 
+      return theme.colors.danger;
   }
 }}
 `;

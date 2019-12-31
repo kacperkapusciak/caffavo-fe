@@ -28,8 +28,8 @@ const Wrapper = styled(Link)`
     background: ${({theme}) => theme.colors.background[200]};
   }
   &:active {
-      border: 1px solid ${({ theme }) => theme.colors.neutral[200]};
-      background: ${({theme}) => theme.colors.background[400]};
+    border: 1px solid ${({ theme }) => theme.colors.neutral[200]};
+    background: ${({theme}) => theme.colors.background[400]};
   }
 `;
 

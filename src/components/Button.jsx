@@ -13,8 +13,11 @@ const Button = styled.button`
   border: 2px solid ${({theme}) => theme.colors.primary};
   
   &:hover {
-    transform: scale(1.025);
+    transform: scale(1.04);
     cursor: pointer;
+  }
+  &:active {
+    transform: scale(1.015);
   }
 `;
 
