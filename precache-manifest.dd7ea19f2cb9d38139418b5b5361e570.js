@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a03b760c015b67485463b5fb81569fe9",
+    "revision": "c5d8b0cd5ae0e50c0a14b8de30d1762e",
     "url": "/caffavo-fe/index.html"
   },
   {
-    "revision": "24073997864f8de5b7ae",
+    "revision": "50eeda8446c61b5e4c01",
     "url": "/caffavo-fe/static/css/2.e8d317c5.chunk.css"
   },
   {
-    "revision": "24073997864f8de5b7ae",
-    "url": "/caffavo-fe/static/js/2.94c1c442.chunk.js"
+    "revision": "50eeda8446c61b5e4c01",
+    "url": "/caffavo-fe/static/js/2.9e15a301.chunk.js"
   },
   {
     "revision": "9fa63f12adbfc5a472ac2bb92be9487a",
-    "url": "/caffavo-fe/static/js/2.94c1c442.chunk.js.LICENSE"
+    "url": "/caffavo-fe/static/js/2.9e15a301.chunk.js.LICENSE"
   },
   {
-    "revision": "0eef27fd7d0396f7b82d",
-    "url": "/caffavo-fe/static/js/main.578c80c5.chunk.js"
+    "revision": "3a16f40991ec24a95285",
+    "url": "/caffavo-fe/static/js/main.b9f2d66f.chunk.js"
   },
   {
     "revision": "b352df16b8ee4a26303a",
