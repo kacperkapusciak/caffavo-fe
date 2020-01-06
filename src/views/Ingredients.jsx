@@ -58,11 +58,12 @@ const Ingredients = props => {
     setMode,
     defaultIngredient,
     ingredientId,
-    setIngredientId
+    setIngredientId,
+    ingredients,
+    ingredientsLoading,
+    fetchIngredients
   } = props;
 
-  const [ingredients, setIngredients] = useState([]);
-  const [ingredientsLoading, setIngredientsLoading] = useState(true);
   const [searchValue, setSearchValue] = useState('');
 
   const fields = ['name', 'amount', 'unit', 'price'];
@@ -90,6 +91,7 @@ const Ingredients = props => {
       if (response.status === 200) {
         goToAddMode();
         setEditLoading(false);
+        await fetchIngredients();
         openNotification('success', 'Usunięto składnik', 3000);
       }
     } catch (err) {
@@ -97,17 +99,6 @@ const Ingredients = props => {
       setEditLoading(false);
     }
   };
-
-  useEffect(() => {
-    (async () => {
-      const response = await axios.get('ingredients');
-
-      if (response.data) {
-        setIngredients(response.data);
-        setIngredientsLoading(false);
-      }
-    })();
-  }, [ingredients]);
 
   return (
     <Workspace>
@@ -196,11 +187,24 @@ const IngredientsContainer = () => {
   const [editLoading, setEditLoading] = useState(false);
   const [error, setError] = useState(null);
   const [mode, setMode] = useState('add');
+  const [ingredients, setIngredients] = useState([]);
+  const [ingredientsLoading, setIngredientsLoading] = useState(true);
 
   const [ingredientId, setIngredientId] = useState(null);
 
-
   const defaultIngredient = { name: '', amount: 1, unit: 'kilogram', price: 1 };
+
+  const fetchIngredients = async () => {
+    const response = await axios.get('ingredients');
+
+    if (response.data) {
+      setIngredients(response.data);
+      setIngredientsLoading(false);
+    }
+  };
+  useEffect(() => {
+    fetchIngredients();
+  }, []);
 
   const tryAddIngredient = async (values) => {
     const { name, amount, unit, price } = values;
@@ -216,6 +220,7 @@ const IngredientsContainer = () => {
       });
       if (response.status === 200) {
         setEditLoading(false);
+        await fetchIngredients();
         openNotification('success', 'Dodano składnik', 3000);
       }
     } catch (err) {
@@ -238,6 +243,7 @@ const IngredientsContainer = () => {
       });
       if (response.status === 200) {
         setEditLoading(false);
+        await fetchIngredients();
         openNotification('success', 'Wprowadzono zmiany.', 3000);
       }
     } catch (err) {
@@ -269,6 +275,9 @@ const IngredientsContainer = () => {
           defaultIngredient={defaultIngredient}
           ingredientId={ingredientId}
           setIngredientId={setIngredientId}
+          ingredients={ingredients}
+          ingredientsLoading={ingredientsLoading}
+          fetchIngredients={fetchIngredients}
         />
       )}
     </Formik>

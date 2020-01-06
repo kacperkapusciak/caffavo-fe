@@ -19,6 +19,13 @@ const Button = styled.button`
   &:active {
     transform: scale(1.015);
   }
+  &:disabled {
+    color: ${({theme}) => theme.colors.neutral[400]};
+    background: ${({theme}) => theme.colors.neutral[300]};
+    border: 2px solid ${({theme}) => theme.colors.neutral[300]};
+    transform: scale(1);
+    cursor: not-allowed;
+  }
 `;
 
 export default Button;

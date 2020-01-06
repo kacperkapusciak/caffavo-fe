@@ -23,6 +23,7 @@ const Wrapper = styled.div`
   height: 100vh;
   border-right: 1px solid ${({ theme }) => theme.colors.neutral[200]};
   padding: 32px 28px;
+  max-width: 256px;
 `;
 
 const Navigation = ({ auth }) => {

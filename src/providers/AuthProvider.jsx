@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const AuthContext = createContext({ id: null, admin: null });
 const AuthProvider = ({ children }) => {
@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem('admin', admin);
     setId(id);
     setAdmin(admin);
-    return <Redirect to="/offer"/>;
+    history.push('/offer');
   };
 
   const logout = () => {

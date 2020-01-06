@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Redirect, Route, Switch, } from 'react-router-dom';
+import { Route, Switch, } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
 
 import { withAuth } from 'providers/AuthProvider';
@@ -8,6 +8,8 @@ import GlobalStyle from 'styles/GlobalStyle';
 import theme from 'styles/theme';
 
 import Navigation from 'components/Navigation';
+import Center from 'components/Center';
+import Spinner from 'components/Spinner';
 
 const Login = React.lazy(() => import('views/Login'));
 const Register = React.lazy(() => import('views/Register'));
@@ -47,18 +49,22 @@ const App = ({ auth }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Suspense fallback="Loading...">
-        <Switch>
-          {auth.id ? (
+      {auth.id ? (
+        <Suspense fallback={<Navigation/>}>
+          <Switch>
             <Layout>
               <Navigation/>
               {auth.admin ? [...adminRoutes, ...userRoutes] : userRoutes}
             </Layout>
-          ) : (
-            unauthorisedRoutes
-          )}
-        </Switch>
-      </Suspense>
+          </Switch>
+        </Suspense>
+      ) : (
+        <Suspense fallback={<Center><Spinner/></Center>}>
+          <Switch>
+            {unauthorisedRoutes}
+          </Switch>
+        </Suspense>
+      )}
       <GlobalStyle/>
     </ThemeProvider>
   );
