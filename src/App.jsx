@@ -9,15 +9,16 @@ import theme from 'styles/theme';
 
 import Navigation from 'components/Navigation';
 
-import Login from 'views/Login';
-import Register from 'views/Register';
-import Orders from 'views/Orders';
-import Users from 'views/Users';
-import Finances from 'views/Finances';
-import Account from 'views/Account';
-import Offer from 'views/Offer';
-import Ingredients from 'views/Ingredients';
-import Recepies from 'views/Recepies';
+const Login = React.lazy(() => import('views/Login'));
+const Register = React.lazy(() => import('views/Register'));
+const Orders = React.lazy(() => import('views/Orders'));
+const Order = React.lazy(() => import('views/Order'));
+const Users = React.lazy(() => import('views/Users'));
+const Finances = React.lazy(() => import('views/Finances'));
+const Account = React.lazy(() => import('views/Account'));
+const Offer = React.lazy(() => import('views/Offer'));
+const Ingredients = React.lazy(() => import('views/Ingredients'));
+const Recepies = React.lazy(() => import('views/Recepies'));
 
 const Layout = styled.div`
   display: grid;
@@ -33,17 +34,15 @@ const App = ({ auth }) => {
   ];
 
   const userRoutes = [
-    <Route path="/orders" component={Orders} key="orders"/>,
-    <Route path="/orders/:id" component={Orders} key="orders-id"/>,
+    <Route path="/orders" exact component={Orders} key="orders"/>,
+    <Route path="/orders/:id" component={Order} key="orders-id"/>,
     <Route path="/account" component={Account} key="account"/>,
-    <Route path="/offer" component={Offer} key="offer"/>,
-    <Redirect path="/" to="/offer" key="redirectUser"/>
+    <Route path="/offer" component={Offer} key="offer"/>
   ];
 
   const unauthorisedRoutes = [
     <Route path="/login" component={Login} key="login"/>,
-    <Route path="/register" component={Register} key="register"/>,
-    <Redirect path="/" to="/login" key="redirectUnauth"/>
+    <Route path="/register" component={Register} key="register"/>
   ];
 
   return (
