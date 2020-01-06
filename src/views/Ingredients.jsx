@@ -4,7 +4,7 @@ import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
 import axios from 'axios-instance';
-import openNotification from 'providers/openNotification';
+import openNotification from 'utils/openNotification';
 
 import Workspace from 'components/Workspace';
 import Header from 'components/Header';
@@ -19,7 +19,7 @@ import Input from 'components/Input';
 import ErrorMessage, { ErrorMessageStyled } from 'components/ErrorMessage';
 import Select from 'components/Select';
 
-const Flex = styled.div`
+const HeadingBar = styled.div`
   display: flex;
   justify-content: space-between;
 `;
@@ -112,11 +112,11 @@ const Ingredients = props => {
   return (
     <Workspace>
       <div>
-        <Flex>
+        <HeadingBar>
           <Header huge>Składniki</Header>
           {mode === 'edit' && <Button onClick={goToAddMode} primary>+ Dodaj</Button>}
           <SearchBar value={searchValue} setValue={setSearchValue}/>
-        </Flex>
+        </HeadingBar>
         <div>
           <TableHeader>
             {['typ', 'nazwa', 'ilość', 'cena', 'dostępność'].map(el => <div key={el}>{el}</div>)}

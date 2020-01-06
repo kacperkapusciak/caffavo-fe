@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
-import { store } from 'react-notifications-component';
 
 import axios from 'axios-instance';
-import openNotification from 'providers/openNotification';
+import openNotification from 'utils/openNotification';
 
 import Center from 'components/Center';
 import Header from 'components/Header';

@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import { store } from 'react-notifications-component';
 
 import { withAuth } from 'providers/AuthProvider';
 import axios from 'axios-instance';
-import openNotification from 'providers/openNotification';
+import openNotification from 'utils/openNotification';
 
 import Center from 'components/Center';
 import Label from 'components/Label';

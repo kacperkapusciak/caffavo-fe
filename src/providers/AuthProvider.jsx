@@ -19,7 +19,7 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem('admin', admin);
     setId(id);
     setAdmin(admin);
-    return <Redirect to="/"/>;
+    return <Redirect to="/offer"/>;
   };
 
   const logout = () => {
@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem('admin');
     setId(null);
     setAdmin(null);
-    history.push('/');
+    history.push('/login');
   };
 
   return (

@@ -34,6 +34,7 @@ const App = ({ auth }) => {
 
   const userRoutes = [
     <Route path="/orders" component={Orders} key="orders"/>,
+    <Route path="/orders/:id" component={Orders} key="orders-id"/>,
     <Route path="/account" component={Account} key="account"/>,
     <Route path="/offer" component={Offer} key="offer"/>,
     <Redirect path="/" to="/offer" key="redirectUser"/>
