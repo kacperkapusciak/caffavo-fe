@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/Recepies.jsx"],"names":["Recepies"],"mappings":"iHAAA,2BAIeA,UAFE,kBAAM","file":"static/js/14.2b6b56b0.chunk.js","sourcesContent":["import React from 'react';\n\nconst Recepies = () => <div>Recepies</div>;\n\nexport default Recepies;"],"sourceRoot":""}

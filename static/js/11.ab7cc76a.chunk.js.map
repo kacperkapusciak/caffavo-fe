@@ -1,0 +1,1 @@
+{"version":3,"sources":["views/Account.jsx"],"names":["Account"],"mappings":"iHAAA,2BAIeA,UAFC,kBAAM","file":"static/js/11.ab7cc76a.chunk.js","sourcesContent":["import React from 'react';\n\nconst Account = () => <div>Account</div>;\n\nexport default Account;"],"sourceRoot":""}
