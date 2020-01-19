@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const TableHeader = styled.div`
   display: grid;
-  grid-template-columns: 50px 1fr 1fr 1fr 85px;
+  grid-template-columns: ${({ layout }) => layout};
+  justify-content: center;
+  text-align: center;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: bold;
@@ -12,7 +14,7 @@ export const TableHeader = styled.div`
 
 export const TableRow = styled.div`
   display: grid;
-  grid-template-columns: 50px 1fr 1fr 1fr 85px;
+  grid-template-columns: ${({ layout }) => layout};
   align-items: center;
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid transparent;

@@ -73,7 +73,7 @@ const Offer = props => {
                     key={`${coffee.name}`}
                     type="coffee"
                     name={coffee.name}
-                    price={coffee.price}
+                    price={parseFloat(coffee.price)}
                     setFieldValue={setFieldValue}
                   />
                 ))}

@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const idFromStorage = localStorage.getItem('id');
     const adminFromStorage = localStorage.getItem('admin');
-    if (adminFromStorage) setAdmin(adminFromStorage);
+    if (adminFromStorage) setAdmin(adminFromStorage === 'true');
     if (idFromStorage) setId(idFromStorage);
   }, []);
 

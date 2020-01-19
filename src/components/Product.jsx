@@ -94,8 +94,7 @@ const Product = props => {
         </DetailWrapper>
         {!setFieldValue && amount ? (
           <Multiplier>
-            x
-            <span>{Math.round(amount)}</span>
+            {`x ${Math.round(amount)}`}
           </Multiplier>
         ) : (
           <Stepper name={name} setFieldValue={setFieldValue}/>

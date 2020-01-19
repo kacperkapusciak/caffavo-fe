@@ -109,7 +109,7 @@ const Ingredients = props => {
           <SearchBar value={searchValue} setValue={setSearchValue}/>
         </HeadingBar>
         <div>
-          <TableHeader>
+          <TableHeader layout="50px 1fr 1fr 1fr 85px">
             {['typ', 'nazwa', 'ilość', 'cena', 'dostępność'].map(el => <div key={el}>{el}</div>)}
           </TableHeader>
           {ingredientsLoading && <Spinner/>}
@@ -120,6 +120,7 @@ const Ingredients = props => {
               return (
                 <TableRow
                   key={ingredient.id}
+                  layout="50px 1fr 1fr 1fr 85px"
                   onClick={() => goToEditMode(ingredient)}
                   active={ingredientId === ingredient.id}
                 >

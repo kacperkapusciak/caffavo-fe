@@ -45,6 +45,7 @@ const ButtonStyled = styled(Button)`
 `;
 const PayButton = styled(Button)`
   margin-top: 25px;
+  margin-bottom: 10px;
 `;
 const MoveRight = styled.div`
   display: flex;
@@ -56,6 +57,18 @@ const Separate = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+`;
+const CancelPaymentWrapper = styled.div`
+  text-align: right;
+`;
+const CancelPayment = styled.span`
+  margin-left: 4px;
+  color: ${({ theme }) => theme.colors.secondary};
+  
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;
 
 const validationSchema = Yup.object({
@@ -91,10 +104,10 @@ const Order = () => {
   const history = useHistory();
 
   const fetchOrderData = async () => {
-    const response = await axios.get(`orders/${id}`);
-    if (response.data) {
-      setOrder(response.data);
-      const { user: userData, orderedItems: orderedItemsData } = response.data;
+    const { data } = await axios.get(`orders/${id}`);
+    if (data) {
+      setOrder(data);
+      const { user: userData, orderedItems: orderedItemsData } = data;
       setUser(userData);
       setIsSufficientData(userData.firstName && userData.lastName &&
         userData.street && userData.building &&
@@ -142,6 +155,29 @@ const Order = () => {
     }
   };
 
+  const tryCancelOrder = async () => {
+    try {
+      const response = await axios({
+        method: 'put',
+        url: `orders/${id}/cancel`
+      });
+      if (response.status === 200) {
+        history.push('/orders');
+        openNotification('success', 'Anulowano zamówienie.', 3000);
+      }
+    } catch (err) {
+      openNotification('danger', 'Anulować można zamówienia nie starsze niz 5 minut.', 4000);
+    }
+  };
+
+  const header = () => {
+    if (order.status === 'anulowane')
+      return 'Anulowano';
+    if (order.payed)
+      return 'Opłacono';
+    return 'Do zapłaty';
+  };
+
   return (
     <Workspace>
       <div>
@@ -186,7 +222,7 @@ const Order = () => {
                   <ButtonStyled onClick={() => setEditUserData(true)}>Uzupełnij dane</ButtonStyled>
                 </InfoWrapper>
               )}
-              <Header subheader>{!order.payed ? 'Do zapłaty' : 'Opłacono'}</Header>
+              <Header subheader>{header()}</Header>
               <Label>Kwota częściowa</Label>
               <Detail>{`${order.price} zł`}</Detail>
               <Label>Koszty dostawy</Label>
@@ -204,6 +240,11 @@ const Order = () => {
                 >
                   Zapłać
                 </PayButton>
+              )}
+              {order.status !== 'anulowane' && (
+                <CancelPaymentWrapper>
+                  <CancelPayment onClick={tryCancelOrder}>anuluj zamówienie</CancelPayment>
+                </CancelPaymentWrapper>
               )}
             </section>
           </OrderLayout>
