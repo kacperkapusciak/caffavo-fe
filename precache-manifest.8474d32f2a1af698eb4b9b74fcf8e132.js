@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eabc7e4561e6f7cb783d52e89bb08e6c",
+    "revision": "01e696bd05d844cfb5bb81517003ce57",
     "url": "/caffavo-fe/index.html"
   },
   {
-    "revision": "dbf83059f338851e3e3d",
+    "revision": "c514f26f019faeaa3a9f",
     "url": "/caffavo-fe/static/css/4.e8d317c5.chunk.css"
   },
   {
@@ -44,12 +44,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/caffavo-fe/static/js/15.f9fc57db.chunk.js"
   },
   {
-    "revision": "dbf83059f338851e3e3d",
-    "url": "/caffavo-fe/static/js/4.15e82da5.chunk.js"
+    "revision": "c514f26f019faeaa3a9f",
+    "url": "/caffavo-fe/static/js/4.4661e1ca.chunk.js"
   },
   {
     "revision": "04ed54b8414d9163863054c75c2ff975",
-    "url": "/caffavo-fe/static/js/4.15e82da5.chunk.js.LICENSE"
+    "url": "/caffavo-fe/static/js/4.4661e1ca.chunk.js.LICENSE"
   },
   {
     "revision": "4ade32a9a9ef993444f1",
@@ -60,23 +60,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/caffavo-fe/static/js/6.36510e3f.chunk.js"
   },
   {
-    "revision": "85243616b48d8df767a3",
-    "url": "/caffavo-fe/static/js/7.a7a23b28.chunk.js"
+    "revision": "34ecf7aaa2e61cd43d82",
+    "url": "/caffavo-fe/static/js/7.d4e9d63c.chunk.js"
   },
   {
-    "revision": "ff51d0d6af07268e192e",
-    "url": "/caffavo-fe/static/js/8.f32762c0.chunk.js"
+    "revision": "940fdd5d538a29de4326",
+    "url": "/caffavo-fe/static/js/8.4bbfb41f.chunk.js"
   },
   {
     "revision": "f74f144b0d36214b9ac3",
     "url": "/caffavo-fe/static/js/9.5e9114fe.chunk.js"
   },
   {
-    "revision": "3eafc6b3c644cd49fda5",
-    "url": "/caffavo-fe/static/js/main.bb8071cb.chunk.js"
+    "revision": "c3ec68f7b50cea51d9fd",
+    "url": "/caffavo-fe/static/js/main.cc12be78.chunk.js"
   },
   {
-    "revision": "505ab9997cc4b326f77b",
-    "url": "/caffavo-fe/static/js/runtime-main.455ace87.js"
+    "revision": "1825a0025b5c8f954337",
+    "url": "/caffavo-fe/static/js/runtime-main.279c029b.js"
   }
 ]);
