@@ -276,7 +276,7 @@ const Order = () => {
                   <ErrorMessage name="lastName"/>
                 </div>
               </Separate>
-              <Separate street>
+              <Separate>
                 <div>
                   <Label htmlFor="street">Ulica</Label>
                   <Field name="street">

@@ -56,7 +56,7 @@ const ProductName = styled.p`
   font-size: 22px;
   font-weight: bold;
   text-transform: capitalize;
-  margin-bottom:  ${({ dense }) => dense ? '0' : '15px'};
+  margin-bottom:  ${({ dense, price }) => dense || !price ? '0' : '15px'};
 `;
 const Price = styled.p`
   color: ${({ theme }) => theme.colors.primary};
@@ -89,8 +89,8 @@ const Product = props => {
       </IconWrapper>
       <ContentWrapper dense={dense}>
         <DetailWrapper dense={dense}>
-          <ProductName dense={dense}>{name}</ProductName>
-          <Price>{`${price} zł`}</Price>
+          <ProductName dense={dense} price={price}>{name}</ProductName>
+          {price && <Price>{`${price} zł`}</Price>}
         </DetailWrapper>
         {!setFieldValue && amount ? (
           <Multiplier>

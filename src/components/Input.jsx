@@ -10,6 +10,10 @@ const Input = styled.input`
   font-size: 16px;
   margin: 10px 0;
   background: transparent;
+  
+  &:disabled {
+   cursor: not-allowed;
+  }
 `;
 
 export default Input;
