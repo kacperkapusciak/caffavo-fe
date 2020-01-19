@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import axios from "axios-instance";
 
+import formatDate from 'utils/formatDate';
 import { withAuth } from 'providers/AuthProvider';
 
 import Workspace from 'components/Workspace';
@@ -12,7 +13,7 @@ import Spinner from 'components/Spinner';
 import { TableHeader, TableRow } from 'components/Table';
 import PaymentStatus from 'components/PaymentStatus';
 import OrderedItem from "components/OrderedItem";
-import Label from "components/Label";
+import Label from 'components/Label';
 
 const OrderNumber = styled.div`
   color: ${({ theme }) => theme.colors.primary};
@@ -80,12 +81,6 @@ const Orders = ({ auth }) => {
   );
 
   const layout = auth.admin ? '95px 120px 1fr 100px 80px 1fr' : '95px 1fr 1fr 1fr 1fr';
-
-  const formatDate = date => {
-    const newDate = new Date(date);
-    const month = newDate.getMonth() + 1 < 10 ? `0${newDate.getMonth() + 1}` : newDate.getMonth();
-    return `${newDate.getDate()}.${month}.${newDate.getFullYear()} r.`;
-  };
 
   return (
     <Workspace>
