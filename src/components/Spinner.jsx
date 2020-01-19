@@ -12,11 +12,11 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${({wholePage}) => wholePage ? '100vh' : '100%'};
+  height: ${({ wholePage }) => wholePage ? '100vh' : '100%'};
   width: 100%;
 `;
 
-const Spinner = ({wholePage}) => (
+const Spinner = ({ wholePage }) => (
   <Wrapper wholePage={wholePage}>
     <SpinnerStyled/>
   </Wrapper>

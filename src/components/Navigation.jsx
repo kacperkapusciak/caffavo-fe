@@ -39,12 +39,12 @@ const Navigation = ({ auth }) => {
     <NavLink to="/finances" icon={<AttachMoneyOutlinedIcon/>} text="Finanse" key="finanse"/>,
     <NavLink to="/users" icon={<PeopleAltOutlinedIcon/>} text="Użytkownicy" key="uzytkownicy"/>,
     <NavLink to="/ingredients" icon={<ExtensionOutlinedIcon/>} text="Składniki" key="skladniki"/>,
-    <NavLink to="/recepies" icon={<MenuBookOutlinedIcon/>} text="Przepisy" key="przepisy"/>
+    <NavLink to="/recipes" icon={<MenuBookOutlinedIcon/>} text="Przepisy" key="przepisy"/>
   ];
 
   const navigationLinks = auth.admin ? [...userLinks, ...adminLinks] : [...userLinks];
   const mappedNavigationLinks = navigationLinks.map(link => {
-    return link.props.to === pathname ? <NavLink {...link.props} active="true" key="current" /> : link;
+    return link.props.to === pathname ? <NavLink {...link.props} active="true" key="current"/> : link;
   });
 
   return (

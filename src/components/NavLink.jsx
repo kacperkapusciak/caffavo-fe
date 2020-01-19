@@ -25,11 +25,11 @@ const Wrapper = styled(Link)`
     color: ${({ theme }) => theme.colors.neutral[300]};
     text-decoration: none;
     cursor: pointer;
-    background: ${({theme}) => theme.colors.background[200]};
+    background: ${({ theme }) => theme.colors.background[200]};
   }
   &:active {
     border: 1px solid ${({ theme }) => theme.colors.neutral[200]};
-    background: ${({theme}) => theme.colors.background[400]};
+    background: ${({ theme }) => theme.colors.background[400]};
   }
 `;
 
@@ -45,7 +45,7 @@ const IconWrapper = styled.div`
   }
 `;
 
-const NavLink = ({to, active, icon, text}) => (
+const NavLink = ({ to, active, icon, text }) => (
   <Wrapper to={to} active={active}>
     <IconWrapper>{icon}</IconWrapper>
     <Text>{text}</Text>

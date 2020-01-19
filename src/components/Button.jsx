@@ -10,7 +10,7 @@ const Button = styled.button`
   transition: all 0.2s ease;
   width: ${({ unsized }) => (unsized ? '100%' : 'unset')};
   height: 50px;
-  border: 2px solid ${({theme}) => theme.colors.primary};
+  border: 2px solid ${({ theme }) => theme.colors.primary};
   
   &:hover {
     transform: scale(1.04);
@@ -20,9 +20,9 @@ const Button = styled.button`
     transform: scale(1.015);
   }
   &:disabled {
-    color: ${({theme}) => theme.colors.neutral[400]};
-    background: ${({theme}) => theme.colors.neutral[300]};
-    border: 2px solid ${({theme}) => theme.colors.neutral[300]};
+    color: ${({ theme }) => theme.colors.neutral[400]};
+    background: ${({ theme }) => theme.colors.neutral[300]};
+    border: 2px solid ${({ theme }) => theme.colors.neutral[300]};
     transform: scale(1);
     cursor: not-allowed;
   }

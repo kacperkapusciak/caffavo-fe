@@ -19,7 +19,7 @@ const Value = styled.span`
   color: ${({ theme }) => theme.colors.secondary};
 `;
 
-const Stepper = ({name, setFieldValue}) => {
+const Stepper = ({ name, setFieldValue }) => {
   const [value, setValue] = useState(0);
 
   const add = () => {

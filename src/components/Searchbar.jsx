@@ -7,7 +7,7 @@ const Form = styled.form`
   width: 300px;
   margin-left: 16px;
   font-size: 18px;
-  border: 1px solid ${({theme}) => theme.colors.neutral[200]};
+  border: 1px solid ${({ theme }) => theme.colors.neutral[200]};
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@ const Input = styled.input`
   }
 `;
 
-const SearchBar = ({value, setValue}) => {
+const SearchBar = ({ value, setValue }) => {
   const [focused, setFocused] = useState(false);
 
   const handleChange = e => {
@@ -53,7 +53,7 @@ const SearchBar = ({value, setValue}) => {
 
   return (
     <Form role="search" onSubmit={e => e.preventDefault()} focused={focused}>
-      <Label><SearchOutlinedIcon /></Label>
+      <Label><SearchOutlinedIcon/></Label>
       <Input
         type="text"
         placeholder="Wyszukaj..."

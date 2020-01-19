@@ -43,7 +43,7 @@ const customStyles = {
       color: dark,
     },
   }),
-  option: (provided, {isFocused, isSelected}) => ({
+  option: (provided, { isFocused, isSelected }) => ({
     ...provided,
     background: isFocused || isSelected ? bgColor : 'none',
     color: dark,

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Route, Switch, } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import styled, { ThemeProvider } from "styled-components";
 
 import { withAuth } from 'providers/AuthProvider';
@@ -20,7 +20,7 @@ const Finances = React.lazy(() => import('views/Finances'));
 const Account = React.lazy(() => import('views/Account'));
 const Offer = React.lazy(() => import('views/Offer'));
 const Ingredients = React.lazy(() => import('views/Ingredients'));
-const Recepies = React.lazy(() => import('views/Recepies'));
+const Recipes = React.lazy(() => import('views/Recipes'));
 
 const Layout = styled.div`
   display: grid;
@@ -32,10 +32,11 @@ const App = ({ auth }) => {
     <Route path="/finances" component={Finances} key="finances"/>,
     <Route path="/users" component={Users} key="users"/>,
     <Route path="/ingredients" component={Ingredients} key="ingredients"/>,
-    <Route path="/recepies" component={Recepies} key="recepies"/>
+    <Route path="/recipes" component={Recipes} key="recipes"/>
   ];
 
   const userRoutes = [
+    <Redirect exact from="/" to="/offer"/>,
     <Route path="/orders" exact component={Orders} key="orders"/>,
     <Route path="/orders/:id" component={Order} key="orders-id"/>,
     <Route path="/account" component={Account} key="account"/>,
@@ -43,6 +44,7 @@ const App = ({ auth }) => {
   ];
 
   const unauthorisedRoutes = [
+    <Redirect exact from="/" to="/login"/>,
     <Route path="/login" component={Login} key="login"/>,
     <Route path="/register" component={Register} key="register"/>
   ];
