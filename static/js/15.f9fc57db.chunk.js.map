@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/Users.jsx"],"names":["Users"],"mappings":"iHAAA,2BAIeA,UAFD,kBAAM","file":"static/js/15.f9fc57db.chunk.js","sourcesContent":["import React from 'react';\n\nconst Users = () => <div>Users</div>;\n\nexport default Users;"],"sourceRoot":""}

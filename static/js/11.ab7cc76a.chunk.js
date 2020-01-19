@@ -1,2 +1,0 @@
-(this["webpackJsonpcaffavo-fe"]=this["webpackJsonpcaffavo-fe"]||[]).push([[11],{356:function(e,n,t){"use strict";t.r(n);var a=t(0),c=t.n(a);n.default=function(){return c.a.createElement("div",null,"Account")}}}]);
-//# sourceMappingURL=11.ab7cc76a.chunk.js.map

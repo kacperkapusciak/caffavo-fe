@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/Finances.jsx"],"names":["Finances"],"mappings":"iHAAA,2BAIeA,UAFE,kBAAM","file":"static/js/12.6d9fc542.chunk.js","sourcesContent":["import React from 'react';\n\nconst Finances = () => <div>Finances</div>;\n\nexport default Finances;"],"sourceRoot":""}
