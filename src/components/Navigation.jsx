@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
+
+import axios from 'axios-instance';
 
 import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
@@ -25,9 +27,25 @@ const Wrapper = styled.div`
   padding: 32px 28px;
   max-width: 256px;
 `;
+const Email = styled.p`
+  width: 100%;
+  min-height: 36px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.neutral[400]};
+  font-weight: bold;
+`;
 
 const Navigation = ({ auth }) => {
   const { pathname } = useLocation();
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`users/${auth.id}`);
+      if (data) setEmail(data.email);
+    })();
+  }, []);
 
   const userLinks = [
     <NavLink to="/offer" icon={<LocalOfferOutlinedIcon/>} text="Oferta" key="oferta"/>,
@@ -53,7 +71,10 @@ const Navigation = ({ auth }) => {
       <div>
         {mappedNavigationLinks}
       </div>
-      <Button onClick={auth.logout}>Wyloguj się</Button>
+      <div>
+        <Email>{email}</Email>
+        <Button unsized onClick={auth.logout}>Wyloguj się</Button>
+      </div>
     </Wrapper>
   )
 };

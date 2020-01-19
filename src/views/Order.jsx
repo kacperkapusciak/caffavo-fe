@@ -89,7 +89,6 @@ const Order = () => {
   const [error, setError] = useState();
 
   const history = useHistory();
-  console.log(order);
 
   const fetchOrderData = async () => {
     const response = await axios.get(`orders/${id}`);

@@ -36,7 +36,6 @@ const App = ({ auth }) => {
   ];
 
   const userRoutes = [
-    <Redirect exact from="/" to="/offer"/>,
     <Route path="/orders" exact component={Orders} key="orders"/>,
     <Route path="/orders/:id" component={Order} key="orders-id"/>,
     <Route path="/account" component={Account} key="account"/>,
@@ -44,7 +43,6 @@ const App = ({ auth }) => {
   ];
 
   const unauthorisedRoutes = [
-    <Redirect exact from="/" to="/login"/>,
     <Route path="/login" component={Login} key="login"/>,
     <Route path="/register" component={Register} key="register"/>
   ];
@@ -57,6 +55,9 @@ const App = ({ auth }) => {
             <Layout>
               <Navigation/>
               {auth.admin ? [...adminRoutes, ...userRoutes] : userRoutes}
+              <Route strict exact path="/">
+                <Redirect to="/offer"/>
+              </Route>
             </Layout>
           </Switch>
         </Suspense>
@@ -64,6 +65,9 @@ const App = ({ auth }) => {
         <Suspense fallback={<Center><Spinner/></Center>}>
           <Switch>
             {unauthorisedRoutes}
+            <Route strict exact path="/">
+              <Redirect to="/login"/>
+            </Route>
           </Switch>
         </Suspense>
       )}
