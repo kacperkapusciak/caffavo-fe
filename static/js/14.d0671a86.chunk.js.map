@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/Recipes.jsx"],"names":["Recipes"],"mappings":"iHAAA,2BAIeA,UAFC,kBAAM","file":"static/js/14.d0671a86.chunk.js","sourcesContent":["import React from 'react';\n\nconst Recipes = () => <div>Recipes</div>;\n\nexport default Recipes;"],"sourceRoot":""}
