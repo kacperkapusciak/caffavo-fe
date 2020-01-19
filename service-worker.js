@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/caffavo-fe/precache-manifest.576bf62c1a635f761b2ee92db24abd8b.js"
+  "/caffavo-fe/precache-manifest.895767d392bbe6053b68157d8a189566.js"
 );
 
 self.addEventListener('message', (event) => {
